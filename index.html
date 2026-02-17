@@ -65,7 +65,7 @@
             margin-bottom: 30px;
         }
 
-        /* --- NOUVEAU STYLE DES RÈGLES (Inspiré HL) --- */
+        /* --- STYLE DES RÈGLES --- */
         .hl-style-box {
             border-radius: 8px;
             padding: 15px 20px;
@@ -74,13 +74,12 @@
             position: relative;
         }
         
-        /* Bloc Rouge/Rose (Règles) - MODIFIÉ : TRAIT ROSE */
+        /* Bloc Règlement - FOND ROSE PÂLE + BORDURE ROSE */
         .box-red {
-            background-color: #ffe0ea; /* Fond rosé */
-            border-left: 5px solid #d48a94; /* TRAIT ROSE */
+            background-color: #fff0f3; 
+            border-left: 5px solid #d48a94; 
             color: #5a3a3a;
         }
-        /* Le titre prend la couleur rose spécifique de la photo */
         .box-red .hl-title { color: #c46a7a; }
 
         /* Bloc Jaune (Contre-indications) */
@@ -103,7 +102,6 @@
         .hl-content ul { margin: 0; padding-left: 20px; }
         .hl-content li { margin-bottom: 5px; font-size: 0.95rem; }
         .hl-content p { margin: 0; font-size: 0.95rem; }
-
 
         /* --- SLIDER --- */
         .slider-container {
@@ -163,7 +161,6 @@
 
         .hidden { display: none; }
         
-        /* Box footer conseils (gardé du code original pour la section du bas) */
         .alert-box-entretien {
             background-color: #fdf2f4;
             border-left: 5px solid var(--accent-dark);
@@ -190,8 +187,6 @@
 <div class="container">
 
     <section>
-        <h2 style="margin-bottom: 25px;">⚠️ À LIRE IMPÉRATIVEMENT</h2>
-        
         <div class="hl-style-box box-red">
             <span class="hl-title">✨ RÈGLEMENT DU SALON</span>
             <div class="hl-content">
@@ -297,17 +292,15 @@
 </footer>
 
 <script>
-    // --- 1. TES LIENS ZCAL ---
     const ZCAL_LINKS = {
-        cils:        "https://zcal.co/i/pHTxBERp",           // Cil à cil
-        mixte:       "https://zcal.co/lashyssbeauty/30min",  // Volume mixte
-        russe:       "https://zcal.co/lashyssbeauty/60min",  // Volume russe
-        mega:        "https://zcal.co/i/7k3fOfFN",           // Mega russe
-        remplissage: "https://zcal.co/i/KTsbMrJh",           // Remplissage
-        depose:      "https://zcal.co/i/m45mx3cF"            // Dépose
+        cils:        "https://zcal.co/i/pHTxBERp",
+        mixte:       "https://zcal.co/lashyssbeauty/30min",
+        russe:       "https://zcal.co/lashyssbeauty/60min",
+        mega:        "https://zcal.co/i/7k3fOfFN",
+        remplissage: "https://zcal.co/i/KTsbMrJh",
+        depose:      "https://zcal.co/i/m45mx3cF"
     };
 
-    // --- 2. GESTION DU SLIDER PHOTO ---
     let index = 0;
     const slides = document.querySelectorAll('.slide');
     function playSlider() {
@@ -320,7 +313,6 @@
     }
     playSlider();
 
-    // --- 3. LOGIQUE RÉSERVATION ---
     function gererFormulaire() {
         const choix = document.getElementById('service-select').value;
         const blocCheck = document.getElementById('check-remplissage');
@@ -333,11 +325,9 @@
         errorMsg.style.display = 'none';
 
         if (choix === "") return;
-
         if (choix === "remplissage") {
             blocCheck.style.display = 'block';
-        } 
-        else {
+        } else {
             if(ZCAL_LINKS[choix]) {
                 btn.href = ZCAL_LINKS[choix];
                 blocFinal.style.display = 'block';
@@ -352,7 +342,6 @@
         const btn = document.getElementById('zcal-link');
 
         if (!input) { alert("Merci d'indiquer la date."); return; }
-
         const datePose = new Date(input);
         const diffJours = Math.ceil(Math.abs(new Date() - datePose) / (1000 * 60 * 60 * 24));
 
