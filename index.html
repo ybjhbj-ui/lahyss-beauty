@@ -5,56 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lashyss Beauty | Extensions de Cils</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --bg-color: #fff5f7; --accent: #ffb6c1; --accent-dark: #d48a94; --text: #4a3437; }
-        body { font-family: 'Lato', sans-serif; background-color: var(--bg-color); color: var(--text); margin: 0; line-height: 1.6; }
-        header { background: #fff; padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--accent); }
-        .main-logo { width: 180px; height: auto; }
-        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
-        section { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        
-        /* Style des règles */
-        .alert-box { background-color: #fff0f3; border-left: 5px solid var(--accent-dark); padding: 15px; border-radius: 5px; }
-        .alert-box ul { margin: 0; padding-left: 20px; }
-        .alert-box li { margin-bottom: 8px; }
+        :root {
+            /* --- COULEURS LASHYSS --- */
+            --bg-color: #fff5f7; 
+            --card-bg: #ffffff;
+            --accent: #ffb6c1; 
+            --accent-dark: #d48a94; 
+            --text: #4a3437; 
+        }
 
-        .slider-container { position: relative; height: 450px; overflow: hidden; border-radius: 10px; border: 2px solid var(--accent); }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text);
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('header-bg-pink.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 40px 20px 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .logo-wrapper {
+            display: flex; justify-content: center; align-items: center; margin-bottom: 10px;
+        }
+
+        .main-logo {
+            width: 180px; height: auto;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); 
+            transition: transform 0.3s ease;
+        }
+        .main-logo:hover { transform: scale(1.02); }
+
+        header h1 { margin-top: 0; font-size: 1.8rem; color: var(--accent-dark); }
+
+        .container {
+            max-width: 800px; margin: -30px auto 0; padding: 20px; position: relative; z-index: 10;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        /* --- RÈGLES --- */
+        .alert-box {
+            background-color: #fff0f3;
+            border-left: 5px solid var(--accent-dark);
+            padding: 15px; margin-bottom: 15px; font-size: 0.95rem; border-radius: 5px;
+        }
+        .alert-title { color: var(--accent-dark); font-weight: bold; display: block; margin-bottom: 5px; text-transform: uppercase; }
+        .alert-box ul { margin: 0; padding-left: 20px; }
+        .alert-box li { margin-bottom: 5px; }
+
+        /* --- SLIDER --- */
+        .slider-container {
+            position: relative;
+            height: 450px;
+            margin: 10px 0;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 2px solid var(--accent);
+            background: #eee;
+        }
         .slide { display: none; width: 100%; height: 100%; object-fit: cover; }
         .active-slide { display: block; animation: fade 0.8s; }
         @keyframes fade { from {opacity: 0.7} to {opacity: 1} }
-        
-        .btn-zcal { display: inline-block; background-color: var(--accent-dark); color: white; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 15px; }
-        .hidden { display: none; }
-        
-        /* Prix */
-        .price-row { display: flex; justify-content: space-between; border-bottom: 1px dotted #ddd; padding-bottom: 5px; margin-bottom: 10px; }
+
+        /* --- PRIX --- */
+        .price-list { margin-top: 20px; }
+        .price-row {
+            display: flex; justify-content: space-between; align-items: flex-end;
+            margin-bottom: 12px; border-bottom: 1px dotted #ddd; padding-bottom: 5px;
+        }
+        .price-name { font-weight: 700; color: var(--text); }
         .price-val { font-weight: bold; color: var(--accent-dark); }
+
+        /* --- RÉSERVATION --- */
+        .booking-brain {
+            background: #fff; border: 2px solid var(--accent);
+            padding: 25px; border-radius: 15px; text-align: center;
+        }
+        
+        select, input[type="date"] {
+            width: 100%; padding: 12px; margin: 10px 0 20px 0;
+            border: 1px solid #ddd; border-radius: 8px;
+            font-family: 'Lato', sans-serif; font-size: 1rem;
+            background-color: #fff;
+        }
+
+        .btn-check {
+            background-color: var(--text); color: white; border: none;
+            padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1rem;
+        }
+
+        .btn-zcal {
+            display: inline-block;
+            background-color: var(--accent-dark); color: white;
+            text-decoration: none; padding: 15px 30px; border-radius: 30px;
+            font-weight: bold; margin-top: 15px; transition: transform 0.2s;
+            box-shadow: 0 4px 10px rgba(212, 138, 148, 0.3);
+        }
+        .btn-zcal:hover { transform: scale(1.05); background-color: var(--accent); }
+
+        .error-msg {
+            background-color: #ffebee; color: #c62828; padding: 10px;
+            border-radius: 5px; font-size: 0.9rem; margin-top: 10px;
+            display: none; border: 1px solid #ffcdd2;
+        }
+
+        .hidden { display: none; }
+        footer { text-align: center; padding: 30px; color: #999; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="Logo Lashyss" class="main-logo">
+    <div class="logo-wrapper">
+        <img src="logo.png" alt="Lashyss Beauty Logo" class="main-logo">
+    </div>
+    
     <h1>Lashyss Beauty</h1>
-    <p>📍 150 route d'Avignon</p>
+    <p style="font-size:1.1rem; letter-spacing:1px;">150 route d'Avignon</p>
+    <p style="font-size:0.9rem; color:#666;">Expertise Regard & Extensions</p>
+    <a href="#booking-section" style="color:var(--text); text-decoration:underline; font-size:0.9rem; font-weight:bold;">Prendre rendez-vous</a>
 </header>
 
 <div class="container">
-    
+
     <section>
-        <h2>⚠️ Règlement du Salon</h2>
+        <h2>⚠️ Important</h2>
+        <div class="alert-box" style="background-color: #fff8e1; border-left-color: #ffb74d;">
+            <p style="text-align:center; font-weight:bold; color:#f57c00; margin:0;">
+                Merci de venir impérativement :<br>
+                🚫 SANS MASCARA<br>
+                🚫 SANS LENTILLES
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Règlement du Salon</h2>
         <div class="alert-box">
+            <span class="alert-title">Conditions de réservation</span>
             <ul>
-                <li style="font-weight:bold; color:#d48a94;">IMPORTANT : Merci de venir sans mascara et sans lentilles.</li>
-                <li>Reconfirmation obligatoire la veille du rendez-vous.</li>
-                <li>Pas d'accompagnateur autorisé.</li>
-                <li>Remplissage à 3 semaines maximum.</li>
-                <li>Tout retard supérieur à 15 min entraîne l'annulation.</li>
+                <li><strong>Reconfirmation obligatoire</strong> la veille du rendez-vous (en DM ou SMS).</li>
+                <li><strong>Pas d'accompagnateur</strong> autorisé.</li>
+                <li>Tout retard supérieur à <strong>15 minutes</strong> entraîne l'annulation automatique.</li>
+                <li>Le remplissage se fait à <strong>3 semaines maximum</strong> (21 jours). Au-delà, c'est une pose complète.</li>
             </ul>
         </div>
     </section>
 
     <section>
+        <h2>Mes Réalisations</h2>
         <div class="slider-container">
             <img src="photo1.jpg" class="slide active-slide">
             <img src="photo2.jpg" class="slide">
@@ -62,78 +183,147 @@
             <img src="photo5.jpg" class="slide">
             <img src="photo6.jpg" class="slide">
         </div>
+        <p style="text-align:center; font-size:0.8rem; color:#888;">(Défilement automatique)</p>
     </section>
 
     <section>
         <h2>Prestations & Tarifs</h2>
         <div class="price-list">
-            <div class="price-row"><span>Pose Cil à Cil</span> <span class="price-val">50€</span></div>
-            <div class="price-row"><span>Pose Volume Mixte</span> <span class="price-val">50€</span></div>
-            <div class="price-row"><span>Pose Volume Russe</span> <span class="price-val">50€</span></div>
-            <div class="price-row"><span>Méga Volume Russe</span> <span class="price-val">60€</span></div>
-            <div class="price-row"><span>Remplissage (Max 3 sem.)</span> <span class="price-val">40€</span></div>
-            <div class="price-row"><span>Dépose</span> <span class="price-val">10€</span></div>
+            <div class="price-row"><span class="price-name">Pose Cil à Cil</span> <span class="price-val">50€</span></div>
+            <div class="price-row"><span class="price-name">Pose Volume Mixte</span> <span class="price-val">50€</span></div>
+            <div class="price-row"><span class="price-name">Pose Volume Russe</span> <span class="price-val">50€</span></div>
+            <div class="price-row"><span class="price-name">Méga Volume Russe</span> <span class="price-val">60€</span></div>
+            <div class="price-row"><span class="price-name">Remplissage (Max 3 sem.)</span> <span class="price-val">40€</span></div>
+            <div class="price-row"><span class="price-name">Dépose</span> <span class="price-val">10€</span></div>
         </div>
     </section>
 
-    <section id="booking">
+    <section id="booking-section">
         <h2>📅 Réserver un créneau</h2>
-        <select id="service-select" onchange="updateForm()" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;">
-            <option value="">-- Choisir une prestation --</option>
-            <option value="cils">Cil à Cil (50€)</option>
-            <option value="mixte">Volume Mixte (50€)</option>
-            <option value="russe">Volume Russe (50€)</option>
-            <option value="mega">Méga Volume (60€)</option>
-            <option value="remplissage">Remplissage (40€)</option>
-            <option value="depose">Dépose (10€)</option>
-        </select>
-        <div id="zcal-step" class="hidden" style="text-align:center;">
-            <a id="zcal-link" href="#" target="_blank" class="btn-zcal">ACCÉDER À L'AGENDA</a>
+        <p style="text-align:center; font-size:0.9rem; margin-bottom:20px;">Choisissez votre prestation :</p>
+
+        <div class="booking-brain">
+            <label style="font-weight:bold; display:block; margin-bottom:5px; text-align:left;">Je souhaite :</label>
+            <select id="service-select" onchange="gererFormulaire()">
+                <option value="">-- Sélectionnez --</option>
+                <option value="cils">Cil à Cil (50€)</option>
+                <option value="mixte">Volume Mixte (50€)</option>
+                <option value="russe">Volume Russe (50€)</option>
+                <option value="mega">Méga Volume Russe (60€)</option>
+                <option value="remplissage">Remplissage (40€)</option>
+                <option value="depose">Dépose (10€)</option>
+            </select>
+
+            <div id="check-remplissage" class="hidden" style="background:#fff0f3; padding:15px; border-radius:10px; margin-bottom:15px; border:1px solid var(--accent);">
+                <p style="color:var(--accent-dark); font-weight:bold; margin-top:0;">⏳ Vérification Date</p>
+                <label style="display:block; text-align:left; font-size:0.9rem;">Date de votre dernière pose :</label>
+                <input type="date" id="date-derniere-pose">
+                <button class="btn-check" onclick="verifierDate()">Vérifier mon éligibilité</button>
+                
+                <div id="error-message" class="error-msg">
+                    ⛔ <strong>Délai dépassé !</strong><br>
+                    Cela fait plus de 21 jours.<br>
+                    Merci de réserver une <strong>Pose Complète</strong>.
+                </div>
+            </div>
+
+            <div id="final-step" class="hidden">
+                <p style="color:green; font-weight:bold;">✅ Créneau disponible !</p>
+                <a id="zcal-link" href="#" target="_blank" class="btn-zcal">ACCÉDER À L'AGENDA ZCAL</a>
+            </div>
         </div>
     </section>
 
     <section>
         <h2>💖 Conseils d'Entretien</h2>
-        <div class="alert-box" style="background:#fdf2f4;">
+        <div class="alert-box" style="background-color: #fdf2f4; border-left-color: var(--accent-dark);">
             <ul>
-                <li>Pas d'eau, vapeur ou sauna pendant 24h.</li>
-                <li>Évitez le mascara.</li>
-                <li>Brossez vos cils tous les jours.</li>
-                <li>Évitez les produits gras sur les yeux.</li>
-                <li>Ne pas arracher ses cils.</li>
+                <li><strong>24h après la pose :</strong> Pas d'eau, pas de vapeur, pas de sauna.</li>
+                <li><strong>Quotidien :</strong> Brossez vos cils tous les jours.</li>
+                <li><strong>Interdit :</strong> Mascara et produits gras (huiles) sur les yeux.</li>
+                <li><strong>Important :</strong> Ne jamais arracher ses cils.</li>
+                <li>Remplissage conseillé toutes les 2 à 3 semaines.</li>
             </ul>
         </div>
     </section>
+
 </div>
 
+<footer>
+    <p>© 2026 Lashyss Beauty - 150 route d'Avignon</p>
+</footer>
+
 <script>
-    const LINKS = {
-        cils: "https://zcal.co/i/pHTxBERp",
-        mixte: "https://zcal.co/lashyssbeauty/30min",
-        russe: "https://zcal.co/lashyssbeauty/60min",
-        mega: "https://zcal.co/i/7k3fOfFN",
-        remplissage: "https://zcal.co/i/KTsbMrJh",
-        depose: "https://zcal.co/i/m45mx3cF"
+    // --- 1. TES LIENS ZCAL ---
+    const ZCAL_LINKS = {
+        cils:        "https://zcal.co/i/pHTxBERp",           // Cil à cil
+        mixte:       "https://zcal.co/lashyssbeauty/30min",  // Volume mixte
+        russe:       "https://zcal.co/lashyssbeauty/60min",  // Volume russe
+        mega:        "https://zcal.co/i/7k3fOfFN",           // Mega russe
+        remplissage: "https://zcal.co/i/KTsbMrJh",           // Remplissage
+        depose:      "https://zcal.co/i/m45mx3cF"            // Dépose
     };
 
-    function updateForm() {
-        const val = document.getElementById('service-select').value;
-        const div = document.getElementById('zcal-step');
-        const link = document.getElementById('zcal-link');
-        if (val) { link.href = LINKS[val]; div.classList.remove('hidden'); }
-        else { div.classList.add('hidden'); }
+    // --- 2. GESTION DU SLIDER PHOTO ---
+    let index = 0;
+    const slides = document.querySelectorAll('.slide');
+    function playSlider() {
+        if(slides.length === 0) return;
+        slides.forEach(s => s.classList.remove('active-slide'));
+        index++;
+        if (index > slides.length) index = 1;
+        slides[index-1].classList.add('active-slide');
+        setTimeout(playSlider, 3000); 
+    }
+    playSlider();
+
+    // --- 3. LOGIQUE RÉSERVATION ---
+    function gererFormulaire() {
+        const choix = document.getElementById('service-select').value;
+        const blocCheck = document.getElementById('check-remplissage');
+        const blocFinal = document.getElementById('final-step');
+        const btn = document.getElementById('zcal-link');
+        const errorMsg = document.getElementById('error-message');
+
+        blocCheck.style.display = 'none';
+        blocFinal.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        if (choix === "") return;
+
+        if (choix === "remplissage") {
+            blocCheck.style.display = 'block';
+        } 
+        else {
+            if(ZCAL_LINKS[choix]) {
+                btn.href = ZCAL_LINKS[choix];
+                blocFinal.style.display = 'block';
+            }
+        }
     }
 
-    let idx = 0;
-    const slides = document.querySelectorAll('.slide');
-    function play() {
-        if (slides.length === 0) return;
-        slides.forEach(s => s.classList.remove('active-slide'));
-        idx++; if (idx > slides.length) idx = 1;
-        slides[idx-1].classList.add('active-slide');
-        setTimeout(play, 3000);
+    function verifierDate() {
+        const input = document.getElementById('date-derniere-pose').value;
+        const errorMsg = document.getElementById('error-message');
+        const blocFinal = document.getElementById('final-step');
+        const btn = document.getElementById('zcal-link');
+
+        if (!input) { alert("Merci d'indiquer la date."); return; }
+
+        const datePose = new Date(input);
+        const diffJours = Math.ceil(Math.abs(new Date() - datePose) / (1000 * 60 * 60 * 24));
+
+        if (diffJours > 21) {
+            errorMsg.style.display = 'block';
+            blocFinal.style.display = 'none';
+        } else {
+            errorMsg.style.display = 'none';
+            btn.href = ZCAL_LINKS["remplissage"];
+            blocFinal.style.display = 'block';
+        }
     }
-    play();
 </script>
+
 </body>
 </html>
+
