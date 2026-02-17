@@ -65,15 +65,44 @@
             margin-bottom: 30px;
         }
 
-        /* --- RÈGLES --- */
-        .alert-box {
-            background-color: #fff0f3;
-            border-left: 5px solid var(--accent-dark);
-            padding: 15px; margin-bottom: 15px; font-size: 0.95rem; border-radius: 5px;
+        /* --- NOUVEAU STYLE DES RÈGLES (Inspiré HL) --- */
+        .hl-style-box {
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
         }
-        .alert-title { color: var(--accent-dark); font-weight: bold; display: block; margin-bottom: 5px; text-transform: uppercase; }
-        .alert-box ul { margin: 0; padding-left: 20px; }
-        .alert-box li { margin-bottom: 5px; }
+        
+        /* Bloc Rouge (Règles) */
+        .box-red {
+            background-color: #fff0f0;
+            border-left: 5px solid #d35f5f;
+            color: #5a3a3a;
+        }
+        .box-red .hl-title { color: #d35f5f; }
+
+        /* Bloc Jaune (Contre-indications) */
+        .box-yellow {
+            background-color: #fff9e6;
+            border-left: 5px solid #f59f00;
+            color: #5d4037;
+        }
+        .box-yellow .hl-title { color: #f59f00; }
+
+        .hl-title {
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hl-content ul { margin: 0; padding-left: 20px; }
+        .hl-content li { margin-bottom: 5px; font-size: 0.95rem; }
+        .hl-content p { margin: 0; font-size: 0.95rem; }
+
 
         /* --- SLIDER --- */
         .slider-container {
@@ -132,6 +161,15 @@
         }
 
         .hidden { display: none; }
+        
+        /* Box footer conseils (gardé du code original pour la section du bas) */
+        .alert-box-entretien {
+            background-color: #fdf2f4;
+            border-left: 5px solid var(--accent-dark);
+            padding: 15px; margin-bottom: 15px; font-size: 0.95rem; border-radius: 5px;
+        }
+        .alert-box-entretien ul { margin: 0; padding-left: 20px; }
+
         footer { text-align: center; padding: 30px; color: #999; font-size: 0.8rem; }
     </style>
 </head>
@@ -151,26 +189,30 @@
 <div class="container">
 
     <section>
-        <h2>Règlement du Salon</h2>
-        <div class="alert-box">
-            <span class="alert-title">Conditions de réservation</span>
-            <ul>
-                <li><strong>Reconfirmation obligatoire</strong> la veille du rendez-vous (en DM ou SMS).</li>
-                <li><strong>Pas d'accompagnateur</strong> autorisé.</li>
-                <li>Tout retard supérieur à <strong>15 minutes</strong> entraîne l'annulation automatique.</li>
-                <li>Le remplissage se fait à <strong>3 semaines maximum</strong> (21 jours). Au-delà, c'est une pose complète.</li>
-            </ul>
+        <h2 style="margin-bottom: 25px;">⚠️ À LIRE IMPÉRATIVEMENT</h2>
+        
+        <div class="hl-style-box box-red">
+            <span class="hl-title">🛑 RÈGLEMENT DU SALON</span>
+            <div class="hl-content">
+                <ul>
+                    <li><strong>Reconfirmation obligatoire</strong> la veille (DM/SMS).</li>
+                    <li><strong>Pas d'accompagnateur</strong> autorisé.</li>
+                    <li>Retard > <strong>15 minutes</strong> = Annulation.</li>
+                    <li>Remplissage : <strong>3 semaines max</strong> (21 jours).</li>
+                </ul>
+            </div>
         </div>
-    </section>
 
-    <section>
-        <h2>⚠️ Important</h2>
-        <div class="alert-box" style="background-color: #fff8e1; border-left-color: #ffb74d;">
-            <p style="text-align:center; font-weight:bold; color:#f57c00; margin:0;">
-                Merci de venir impérativement :<br>
-                 SANS MASCARA<br>
-                 SANS LENTILLES
-            </p>
+        <div class="hl-style-box box-yellow">
+            <span class="hl-title">🚫 CONTRE-INDICATIONS</span>
+            <div class="hl-content">
+                <p>Pas de prestation en cas d'infection (conjonctivite, orgelet).</p>
+                <p style="margin-top:10px; font-weight:bold;">
+                    Merci de venir impérativement :<br>
+                    - SANS MASCARA<br>
+                    - SANS LENTILLES
+                </p>
+            </div>
         </div>
     </section>
 
@@ -236,7 +278,7 @@
 
     <section>
         <h2>💖 Conseils d'Entretien</h2>
-        <div class="alert-box" style="background-color: #fdf2f4; border-left-color: var(--accent-dark);">
+        <div class="alert-box-entretien">
             <ul>
                 <li><strong>24h après la pose :</strong> Pas d'eau, pas de vapeur, pas de sauna.</li>
                 <li><strong>Quotidien :</strong> Brossez vos cils tous les jours.</li>
